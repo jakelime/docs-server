@@ -32,3 +32,5 @@ Documentations are created using [sphinx](https://www.sphinx-doc.org/)
 1. On local machine (server), use webbrowser to access `http://127.0.0.1:28868`
 
 1. On another machine (client), use webbrowser to access `http://X.X.X.X:28868`, where `X.X.X.X` is the IP Address of the server
+
+1. To add `documentations`, use `sphinx` to create and store the entire `HTML build folder` into `static/`
