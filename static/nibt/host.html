@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>host module &mdash; nibt 8.2.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="app module" href="app.html" />
+    <link rel="prev" title="niseq module" href="niseq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nibt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create.html">Creating recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prod.html">Production usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="futuredev.html">Future Dev</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nibt</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niseq.html">niseq module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">host module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#host.FileTable"><code class="docutils literal notranslate"><span class="pre">FileTable</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host.FileTable.get_files"><code class="docutils literal notranslate"><span class="pre">FileTable.get_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.FileTable.make_filetable"><code class="docutils literal notranslate"><span class="pre">FileTable.make_filetable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#host.Host"><code class="docutils literal notranslate"><span class="pre">Host</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.archive_files"><code class="docutils literal notranslate"><span class="pre">Host.archive_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.compute_data"><code class="docutils literal notranslate"><span class="pre">Host.compute_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.create_cfg_foms_template"><code class="docutils literal notranslate"><span class="pre">Host.create_cfg_foms_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.generate_test_datalog"><code class="docutils literal notranslate"><span class="pre">Host.generate_test_datalog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.get_data_from_rawfile"><code class="docutils literal notranslate"><span class="pre">Host.get_data_from_rawfile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.get_fom_specs"><code class="docutils literal notranslate"><span class="pre">Host.get_fom_specs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.get_latest_testdata_filepath"><code class="docutils literal notranslate"><span class="pre">Host.get_latest_testdata_filepath()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.get_test_datalog_header"><code class="docutils literal notranslate"><span class="pre">Host.get_test_datalog_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.process_final_datalog"><code class="docutils literal notranslate"><span class="pre">Host.process_final_datalog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.remove_files"><code class="docutils literal notranslate"><span class="pre">Host.remove_files()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.sanity_check_for_user_specs_config"><code class="docutils literal notranslate"><span class="pre">Host.sanity_check_for_user_specs_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.Host.trigger_end_lot_sequence"><code class="docutils literal notranslate"><span class="pre">Host.trigger_end_lot_sequence()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#host.TestDataObject"><code class="docutils literal notranslate"><span class="pre">TestDataObject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host.TestDataObject.get_data"><code class="docutils literal notranslate"><span class="pre">TestDataObject.get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.TestDataObject.to_pdSeries"><code class="docutils literal notranslate"><span class="pre">TestDataObject.to_pdSeries()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.TestDataObject.to_pdSeries_defintion_template"><code class="docutils literal notranslate"><span class="pre">TestDataObject.to_pdSeries_defintion_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.TestDataObject.unwrap_tdms_column_name"><code class="docutils literal notranslate"><span class="pre">TestDataObject.unwrap_tdms_column_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host.TestDataObject.wrap_to_tdms_column_name"><code class="docutils literal notranslate"><span class="pre">TestDataObject.wrap_to_tdms_column_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commons.html">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbmgr.html">dbmgr module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nibt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">nibt</a> &raquo;</li>
+      <li>host module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/host.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-host">
+<span id="host-module"></span><h1>host module<a class="headerlink" href="#module-host" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="host.FileTable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">FileTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_simple_datalist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_nofile_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.FileTable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Looks into the folder, gets a list of files</p>
+<p>Attributes
+:param folderpath: target folderpath to look into
+:type folderpath: Path
+:param files: list of files found inside folderpath
+:type files: list[Path]
+:param df: File table in dataframe format columns[filename, filepath, mod_time]
+:type df: pandas.DataFrame</p>
+<p>Functions
+:param get_files: target folderpath to look into
+:param make_filetable: target folderpath to look into
+:param get_latest_data: returns a single filepath (last, sorted by mod_time)
+:param make_simple_datalist: returns a list of files</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.get_files">
+<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['.index']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#host.FileTable.get_files" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_suffix</strong> (<em>str</em>) – _description_</p></li>
+<li><p><strong>ignores</strong> (<em>list</em><em>, </em><em>optional</em>) – _description_, defaults to [“.index”]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of files found</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.make_filetable">
+<span class="sig-name descname"><span class="pre">make_filetable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#host.FileTable.make_filetable" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>File table in dataframe format columns[filename, filepath, mod_time]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="host.Host">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">Host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.Host" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main worker to decipher data from tdms input file,
+makes into nice test datalog output format</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.archive_files">
+<span class="sig-name descname"><span class="pre">archive_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath_dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#host.Host.archive_files" title="Permalink to this definition"></a></dt>
+<dd><p>Archives file(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filelist</strong> (<em>list</em><em>[</em><em>Path</em><em>]</em>) – list of files</p></li>
+<li><p><strong>folderpath_dst</strong> (<em>Path</em>) – destination dir</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.compute_data">
+<span class="sig-name descname"><span class="pre">compute_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg_foms_filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdms_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_faulty_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_non_specs_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_csv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forced_end_lot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#host.Host.compute_data" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – logger</p></li>
+<li><p><strong>cfg_foms_filepath</strong> (<em>Path</em><em>, </em><em>optional</em>) – user configuration file to specify parametric FOMs and
+specs. If not specified, it will attempt to generate using
+a templated default.
+defaults to None</p></li>
+<li><p><strong>tdms_path</strong> (<em>Path</em><em>, </em><em>optional</em>) – filepath to the data file in tdms format.
+if not specified, takes from current object, self.tdms_path
+defaults to None</p></li>
+<li><p><strong>replace_faulty_config</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag to pass to create_cfg_foms_template(replace_faulty_config=False).
+Refer create_cfg_foms_template for more details , defaults to False</p></li>
+<li><p><strong>print_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – print out test results to logger (only FOMs with specs), defaults to True</p></li>
+<li><p><strong>print_non_specs_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – print out test results to logger (non-specs FOMs), defaults to False</p></li>
+<li><p><strong>output_csv</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag to generate output_csv, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.create_cfg_foms_template">
+<span class="sig-name descname"><span class="pre">create_cfg_foms_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdms_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_faulty_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="headerlink" href="#host.Host.create_cfg_foms_template" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a template that can be edited by user, to specify user configurations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdms_path</strong> (<em>Path</em><em>, </em><em>optional</em>) – An sample tdms output file is required in order to generate
+the template. If not specified, automatically extract from the
+working folder.
+defaults to None</p></li>
+<li><p><strong>replace_faulty_config</strong> (<em>bool</em><em>, </em><em>optional</em>) – in case of corrupted config file, auto generates a new one.
+Set to True to replace the corrupted file (a copy of old one
+will be saved in the same directory)
+If False, it will generate a new config file in the same
+directory, old corrupted file untouched.
+defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>filepath of the new configuration file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.generate_test_datalog">
+<span class="sig-name descname"><span class="pre">generate_test_datalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_non_specs_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forced_end_lot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#host.Host.generate_test_datalog" title="Permalink to this definition"></a></dt>
+<dd><p>High level function to generate test datalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – logger</p></li>
+<li><p><strong>data</strong> (<em>Path</em><em> or </em><em>list</em><em>[</em><em>Path</em><em>]</em>) – data file(s) in tdms format,</p></li>
+<li><p><strong>print_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag for TestDataObject.to_pdSeries(), defaults to True</p></li>
+<li><p><strong>print_non_specs_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag for TestDataObject.to_pdSeries(), defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>If all data file has a PASS results, returns TRUE, else FALSE</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_data_from_rawfile">
+<span class="sig-name descname"><span class="pre">get_data_from_rawfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdms_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#host.Host.get_data_from_rawfile" title="Permalink to this definition"></a></dt>
+<dd><p>Reads tdms file, returns a list of dataframes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tdms_path</strong> (<em>pathlib.Path</em>) – filepath to the data stored in tdms format</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>converted data from tdms to pandas dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_fom_specs">
+<span class="sig-name descname"><span class="pre">get_fom_specs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_foms_filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#host.Host.get_fom_specs" title="Permalink to this definition"></a></dt>
+<dd><p>Reads the user configuration file, generates a reference hash table
+Only parametric foms with actual values and specs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cfg_foms_filepath</strong> (<em>_type_</em><em>, </em><em>optional</em>) – _description_, defaults to None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe containing the columns[fom, USL, LSL, CF_A, CF_B]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_latest_testdata_filepath">
+<span class="sig-name descname"><span class="pre">get_latest_testdata_filepath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.Host.get_latest_testdata_filepath" title="Permalink to this definition"></a></dt>
+<dd><p>sets self.current_tdms_path to the latest tested data file from self.working_folderpath</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folderpath</strong> (<em>pathlib.Path</em>) – folderpath</p></li>
+<li><p><strong>fileformat</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to ‘.tdms’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>latest test data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_test_datalog_header">
+<span class="sig-name descname"><span class="pre">get_test_datalog_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_foms_filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#host.Host.get_test_datalog_header" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the parameteric header names from the user configuration file
+The map is a dictionary containing “raw column name” to be mapped
+to “user specified FOM parametric name”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cfg_foms_filepath</strong> (<em>Path</em><em>, </em><em>optional</em>) – _description_, defaults to None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(pd.DataFrame(dfheader), dict(column_name_mapping))</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.process_final_datalog">
+<span class="sig-name descname"><span class="pre">process_final_datalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[['pythonOutput',</span> <span class="pre">'version=']]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="headerlink" href="#host.Host.process_final_datalog" title="Permalink to this definition"></a></dt>
+<dd><p>Processor function to develop working dataframe into the final test datalog output
+This will output the standard format used by ams-OSRAM Test Development</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – logger</p></li>
+<li><p><strong>filepath</strong> (<em>Path</em>) – filepath to the output pandas.DataFrame (in CSV format)</p></li>
+<li><p><strong>top_header</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The first line of the output CSV file. Single row &amp; 2-dimension array, each
+str element is a CSV/excel cell.
+defaults to [[“pythonOutput”, “version=”]]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>filepath of the output (same as input filepath)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.remove_files">
+<span class="sig-name descname"><span class="pre">remove_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rollover_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#host.Host.remove_files" title="Permalink to this definition"></a></dt>
+<dd><p>Removes files from folderpath, based on the specified maximum number of files allowed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folderpath</strong> (<em>Path</em>) – Target folderpath</p></li>
+<li><p><strong>rollover_n</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of files allowed in the folder, defaults to 99</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.sanity_check_for_user_specs_config">
+<span class="sig-name descname"><span class="pre">sanity_check_for_user_specs_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg_foms_filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#host.Host.sanity_check_for_user_specs_config" title="Permalink to this definition"></a></dt>
+<dd><p>Checks the user-configured configuration files.
+If potential problems are detected, raise Exceptions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cfg_foms_filepath</strong> (<em>Path</em><em>, </em><em>optional</em>) – _description_, defaults to None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.trigger_end_lot_sequence">
+<span class="sig-name descname"><span class="pre">trigger_end_lot_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validate_number_of_data_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">archive_raw_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_csv_reports</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forced_end_lot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.Host.trigger_end_lot_sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Triggers the ‘end lot’ sequence</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Generates test datalog (single CSV file) from list of data files in the working folder</p></li>
+<li><p>Archives the data files from the working folder to archive folder</p></li>
+</ol>
+<p>3. Remove interim files (single-DUT CSV reports), using overflow concept. If &gt; N, old files
+will be deleted</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>print_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag for TestDataObject.to_pdSeries(), defaults to False</p></li>
+<li><p><strong>archive_raw_files</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag to archive tdms files found in the working folder, defaults to True</p></li>
+<li><p><strong>remove_csv_reports</strong> (<em>bool</em><em>, </em><em>optional</em>) – flag to remove unnecessary single DUT report CSV files, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="host.TestDataObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">TestDataObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_series</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.TestDataObject" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Test data blueprint, for a single channel of data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agg_fn_name</strong> (<em>str</em>) – function to aggregate data series, e.g. mean(data_array)</p></li>
+<li><p><strong>result_value</strong> (<em>float</em>) – final single value results computed after aggregate function</p></li>
+<li><p><strong>index_selection</strong> (<em>str</em>) – how to select which of the data to be used for computation</p></li>
+<li><p><strong>data</strong> (<em>pandas.Series</em>) – converted data (1 of the tdms channels) in pandas.Series format, after dropna()</p></li>
+<li><p><strong>agg_fn_name</strong> – function to aggregate data series, e.g. mean(data_array)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="host.TestDataObject.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg_fn_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.TestDataObject.get_data" title="Permalink to this definition"></a></dt>
+<dd><p>get data, computed from the input data series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_selection</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “”</p></li>
+<li><p><strong>agg_fn_name</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “mean”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>result value after using aggregate function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.TestDataObject.to_pdSeries">
+<span class="sig-name descname"><span class="pre">to_pdSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">USL</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LSL</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cf_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cf_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_cf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_selection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg_fn_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_non_specs_computation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#host.TestDataObject.to_pdSeries" title="Permalink to this definition"></a></dt>
+<dd><p>Function to generate the critical outputs for test datalog
+Will produce either one of the following formats:</p>
+<dl class="simple">
+<dt>print_cf == True:</dt><dd><p>{fom: self.result_value,
+f”{fom}_cf_a”: cf_a,
+f”{fom}_cf_b”: cf_b,}</p>
+</dd>
+<dt>print_cf == False:</dt><dd><p>{fom: self.result_value})</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fom</strong> (<em>str</em>) – _description_</p></li>
+<li><p><strong>USL</strong> (<em>float</em>) – _description_</p></li>
+<li><p><strong>LSL</strong> (<em>float</em>) – _description_</p></li>
+<li><p><strong>cf_a</strong> (<em>float</em>) – _description_</p></li>
+<li><p><strong>cf_b</strong> (<em>float</em>) – _description_</p></li>
+<li><p><strong>units</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to None</p></li>
+<li><p><strong>print_cf</strong> (<em>bool</em><em>, </em><em>optional</em>) – _description_, defaults to True</p></li>
+<li><p><strong>index_selection</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “all”</p></li>
+<li><p><strong>agg_fn_name</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “mean”</p></li>
+<li><p><strong>print_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – print out test results to logger (only FOMs with specs),  defaults to False</p></li>
+<li><p><strong>print_non_specs_computation</strong> (<em>bool</em><em>, </em><em>optional</em>) – print out test results to logger (non-specs FOMs),  defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Exception</strong> – _description_</p></li>
+<li><p><strong>Exception</strong> – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.TestDataObject.to_pdSeries_defintion_template">
+<span class="sig-name descname"><span class="pre">to_pdSeries_defintion_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#host.TestDataObject.to_pdSeries_defintion_template" title="Permalink to this definition"></a></dt>
+<dd><p>generates template pandas.Series, for user to edit the configurations</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{“raw_column_name”: ,</dt><dd><p>“fom”: ,
+“report”: ,
+“example_value”: ,
+“datasize”: ,
+“agg_fn_name”: ,
+“index_selection”: ,
+“USL”: ,
+“LSL”: ,
+“UNITS”: }</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a template in pandas.Series format</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.TestDataObject.unwrap_tdms_column_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unwrap_tdms_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.TestDataObject.unwrap_tdms_column_name" title="Permalink to this definition"></a></dt>
+<dd><p>Deciphers the taw tdms column name, reformat to proper string without illegal chars
+f”/’{group_name}’/’{channel_name}’” to
+f”{group_name}_{channel_name}”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>_type_</em>) – raw column name from the tdms file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.TestDataObject.wrap_to_tdms_column_name">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wrap_to_tdms_column_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.TestDataObject.wrap_to_tdms_column_name" title="Permalink to this definition"></a></dt>
+<dd><p>Formats tdms keywords to original raw string that can be matched
+to the original tdms file
+f”/’{group_name}’/’{channel_name}’”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_name</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>channel_name</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="niseq.html" class="btn btn-neutral float-left" title="niseq module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="app.html" class="btn btn-neutral float-right" title="app module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+Downloads
+=========
+
+NIBT is easy to be installed. Distributable is released
+with easy to use step-by-step installer for Windows.
+
+
+
+#. **Win**
+
+   #. :download:`nibt_v8.2.2_installer <_downloads/nibt_v8.2.2_installer.exe>`
+
+   #. :download:`nibt_v8.2.3_installer <_downloads/nibt_v8.2.3_installer.exe>`
+
+   #. :download:`nibt_v8.2.5_installer <_downloads/nibt_v8.2.5_installer.exe>`

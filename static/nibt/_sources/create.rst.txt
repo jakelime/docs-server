@@ -1,0 +1,120 @@
+Creating recipes
+================
+
+A template recipe created by default out of the box. Use it as a guideline to make/create new recipes.
+
+
+
+Create new Test Recipe
+----------------------
+
+#. Go to the `Engineering` tab
+
+    .. figure:: _images/engineering_ui.png
+       :alt: engineering_ui
+       :align: center
+       :width: 400px
+
+#. Open the working config folder. You can use `Open config folder` from the `File` menubar.
+
+    .. figure:: _images/filemenu.png
+       :alt: filemenu
+       :align: center
+       :width: 300px
+
+#. Make a `New recipe file` by duplicating `config.yml`.
+
+    .. figure:: _images/new_recipe_file.png
+       :alt: new_recipe_file
+       :align: center
+       :width: 200px
+
+#. Edit the `New_Recipe.yml` using any text editor. Highly recommended to use good quality text editors
+   such as `SublimeText <https://www.sublimetext.com/>`_ in the screenshot below (quality auto-formatting,
+   and syntax highlighting).
+
+    .. figure:: _images/configure_recipe.png
+       :alt: configure_recipe
+       :align: center
+       :width: 400px
+
+#. Refer to recipe section for configuration details.
+
+#. Save the modified recipe. Drag and drop into the UI. Load the recipe. Ensure that the recipe is loaded
+   correctly by checking the recipe name and version.
+
+    .. figure:: _images/dnd_recipe.png
+       :alt: dnd_recipe
+       :align: center
+       :width: 300px
+
+
+Test sequence
+-------------
+
+#. Using simple text blocks, you can set up complicated timing diagrams such as
+
+    .. figure:: _images/timing_diagram.png
+       :alt: timing_diagram
+       :align: center
+       :width: 300px
+
+#. To create the first step, you can configure something like this in the image below.
+   All the channels configured in this example will be triggered in-sync using the NI driver.
+   Specs follow the NI hardware specifications.
+
+    .. figure:: _images/example_sequence.png
+       :alt: example_sequence
+       :align: center
+       :width: 450px
+
+#. Repeat the entire block to create more steps if desired.
+
+
+Set test params
+---------------
+
+#. Once test sequence (a.k.a. recipe) is configured properly, double
+   check that there are no errors.
+
+    .. figure:: _images/testseq_no_error.png
+       :alt: testseq_no_error
+       :align: center
+       :width: 500px
+
+       An example of successful test log (No errors)
+
+    .. figure:: _images/testseq_error.png
+       :alt: testseq_error
+       :align: center
+       :width: 500px
+
+       An example of ERROR test log. Debugging is needed.
+
+#. Check that the `data.tdms` generated correctly as programmed. Use
+   the `read tdms` function to convert to CSV if necessary.
+
+    .. figure:: _images/ui_tdms.png
+       :alt: ui_tdms
+       :align: center
+       :width: 300px
+
+#. Drag and drop the `data.tdms` into the raw data field (it is also auto-updated
+   after running test sequence). Click `Eval` to evaluate the raw data.
+
+    .. figure:: _images/ui_raw_data.png
+       :alt: ui_raw_data
+       :align: center
+       :width: 300px
+
+#. If `foms-PROJECT_NAME.csv` file do not exist, the app will generate a template.
+   Open the `foms-XXXX.csv` from the config folder to configure FOMs, data selection,
+   function calls, test specs, correction factors and etc. This file will determine
+   how the app will compute using the given `data.tdms`.
+
+    .. figure:: _images/foms_csv.png
+       :alt: foms_csv
+       :align: center
+       :width: 600px
+
+       An example of how to use the foms-XXXX.csv to configure test parameters

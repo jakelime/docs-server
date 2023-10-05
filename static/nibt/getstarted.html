@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; nibt 8.2.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating recipes" href="create.html" />
+    <link rel="prev" title="Downloads" href="downloads.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nibt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create.html">Creating recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prod.html">Production usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="futuredev.html">Future Dev</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">nibt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nibt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getstarted.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>NIBT is easy to be installed. Distributable is released
+with easy to use step-by-step installer for Windows.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading"></a></h2>
+<ul>
+<li><dl class="simple">
+<dt>Hardware Requirements</dt><dd><ul class="simple">
+<li><p>NI PXI Modular System</p></li>
+<li><p>Controller: PXIe-8840/8135, etc.</p></li>
+<li><p>SMU Cards: PXIe-4139/4140, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Software Driver Requirements</dt><dd><ul class="simple">
+<li><p>&gt; nidcpower 20.0.0</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lower versions of nidcpower might work, but I will not bother
+to support. Critical function we need is Create_Advanced_Sequence,
+and support for 10us from nidcpower 18.5 and above.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NI has completely stopped support for Win7 (from nidcpower 20.5.0 onwards)</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Operating System Requirements</dt><dd><ul class="simple">
+<li><p>Hardware 8840/8135 comes preinstalled with OS,</p></li>
+<li><p>Win7 [Version 6.1.7601]</p></li>
+<li><p>Win10 [Version 10.0.19044.2006]</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Win7 is OFFICIALLY OUT OF SUPPORT. It will be
+incredibly difficult to set up, even though it is possible.
+This version of NIBT is specifically made to support win7,
+but be warned that future feature upgrades / supports will
+not be possible.</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>Other Special Requirements</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Windows 7, SP1, KB4490628</p></li>
+<li><p>Depending on how outdated your win7 is, you need to check and make
+sure the OS is capable of SHA256 certificate signing.</p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/topic/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus-64d1c82d-31ee-c273-3930-69a4cde8e64f">Link to Microsoft Support</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Download the <em>installer.exe</em>. Open with administrative permissions.</p></li>
+<li><p>Follow the setup instructions. Recommended to install in <cite>C:/Programs Files (x86)</cite> folder,
+this will ensure that any standard user (for <em>Operator</em>) can execute the app.</p></li>
+<li><p>Allow the app to access <em>My Documents</em> folder (in case there are security prompts)</p></li>
+<li><p>If the app loads successfully, you will be able to see the screenhot below</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="_images/production_ui.png"><img alt="production_ui" src="_images/production_ui.png" style="width: 400px;" /></a>
+</figure>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="downloads.html" class="btn btn-neutral float-left" title="Downloads" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create.html" class="btn btn-neutral float-right" title="Creating recipes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

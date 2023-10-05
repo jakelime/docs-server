@@ -1,0 +1,13 @@
+Downloads
+=========
+
+#. **MacOS**
+
+   #. :download:`flyhost_3.0.2.dmg <_downloads/flyhost_v3.0.2.dmg>`
+
+   #. :download:`flyhost_3.0.3.dmg <_downloads/flyhost_v3.0.3.dmg>`
+
+#. **Sample files**
+
+   #. :download:`flyhost_3.0.2 Sample Files <_downloads/flyhost_v3.0.2_samplefiles.7z>`
+

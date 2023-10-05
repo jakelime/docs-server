@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Flask Server</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+  </head>
+  <body>
+    <div class="big_header">
+      <h1>Simple Flask Server</h1>
+      <p>Documentations and downloads</p>
+    </div>
+
+    <div class="body">
+      <h3>Projects</h3>
+
+      {% for proj, proj_add in files.items() -%}
+
+      <p>
+        <a
+          href="{{ (request.path + '/' if request.path != '/' else '') + proj_add }}"
+        >
+          {{ (request.path + '/' if request.path != '/' else '') + proj }}
+        </a>
+      </p>
+
+      {% endfor %}
+    </div>
+
+    <div class="body">
+      <h3>Offline documentations</h3>
+
+      {% for filename, filepath in pdf_downloads.items() -%}
+
+      <p>
+        <a
+          href="{{ (request.path + '/' if request.path != '/' else '') + filepath }}"
+        >
+          {{ (request.path + '/' if request.path != '/' else '') + filename }}
+        </a>
+      </p>
+
+      {% endfor %}
+    </div>
+
+    <footer class="footer">
+      Created by JakeLim © Copyright 2022 <br />
+    </footer>
+  </body>
+</html>

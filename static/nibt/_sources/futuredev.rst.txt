@@ -1,0 +1,149 @@
+Future Dev
+==========
+
+Details (full source code) for the NI callback functions are described here.
+
+- setup_SourceCurrent()
+
+- setup_SourceVoltage()
+
+
+These functions are called from `config.yml`, configured by the user.
+NIBT is open to for further development in the future, developers can create new functions
+to extend functionalities.
+
+Other ongoing work (to be scheduled in future releases) include additional functions for post processing.
+For example, calculations of Resistance (R = V/I), curve fitting (IV curve, find junction voltage)
+
+
+setup_SourceCurrent()
+---------------------
+
+.. code-block:: python
+
+    def setup_SourceVoltage(self):
+        """
+        Function to interface with nidcpower API.
+        self.user_params contains dict containing the user configurations to create
+        a nidcpower.Session object to source voltage.
+
+        :param self: NibtSmuSession object, which is inherited from nidcpower.Session
+        :type self: NibtSmuSession
+        """
+        try:
+            up = self.user_params
+            self.source_mode = nidcpower.SourceMode.SEQUENCE
+            if up["aperture_time_units"].upper() == "SECONDS":
+                self.configure_aperture_time(
+                    up["aperture_time"], nidcpower.ApertureTimeUnits.SECONDS
+                )
+            elif up["aperture_time_units"].upper() == "POWER_LINE_CYCLES":
+                self.configure_aperture_time(
+                    up["aperture_time"],
+                    nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES,
+                )
+            else:
+                raise InvalidConfigParamError(
+                    f"{up['resource_name']=}'s, '{up['aperture_time_units']=}"
+                )
+
+            self.measure_when = nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE
+            self.sense = nidcpower.Sense.REMOTE
+            if up["startTriggerInputTerminal"] is not None:
+                self.is_master = False
+                self.start_trigger_type = nidcpower.TriggerType.DIGITAL_EDGE
+                self.digital_edge_start_trigger_input_terminal = up[
+                    "startTriggerInputTerminal"
+                ]
+
+            self.voltage_level_range = up["voltage_level_range"]
+            self.current_limit = up["current_limit"]
+            self.current_limit_range = up["current_limit_range"]
+
+            self.create_advanced_sequence(
+                sequence_name=self.nibt_session_name,
+                property_names=self.properties_used,
+                set_as_active_sequence=True,
+            )
+
+            for stepParams in up["advanced_sequence_steps"]:
+                self.create_advanced_sequence_step(set_as_active_step=True)
+                self.source_delay = stepParams["source_delay"]
+                self.output_function = nidcpower.OutputFunction.DC_VOLTAGE
+                self.voltage_level = stepParams["voltage_level"]
+                self.sequence_step_delta_time_enabled = True
+                self.sequence_step_delta_time = stepParams["deltaTime"]
+                # Note: Sequence Step Delta Time does not apply to the final step of the final
+                # iteration of a sequence (refer to NI docs).
+            self.sequence_loop_count = up["advanced_sequence_loops"]
+
+        except Exception as e:
+            raise Exception(f"{self.__class__.__name__}.{cfr().f_code.co_name}(); {e}")
+
+
+
+setup_SourceCurrent()
+---------------------
+
+.. code-block:: python
+
+    def setup_SourceCurrent(self):
+        """
+        Function to interface with nidcpower API.
+        self.user_params contains dict containing the user configurations to create
+        a nidcpower.Session object to source current.
+
+        :param self: NibtSmuSession object, which is inherited from nidcpower.Session
+        :type self: NibtSmuSession
+        """
+        try:
+            up = self.user_params
+            self.source_mode = nidcpower.SourceMode.SEQUENCE
+            if up["aperture_time_units"].upper() == "SECONDS":
+                self.configure_aperture_time(
+                    up["aperture_time"], nidcpower.ApertureTimeUnits.SECONDS
+                )
+            elif up["aperture_time_units"].upper() == "POWER_LINE_CYCLES":
+                self.configure_aperture_time(
+                    up["aperture_time"],
+                    nidcpower.ApertureTimeUnits.POWER_LINE_CYCLES,
+                )
+            else:
+                raise InvalidConfigParamError(
+                    f"{up['resource_name']=}'s, '{up['aperture_time_units']=}"
+                )
+
+            self.measure_when = nidcpower.MeasureWhen.AUTOMATICALLY_AFTER_SOURCE_COMPLETE
+            self.sense = nidcpower.Sense.REMOTE
+            if up["startTriggerInputTerminal"] is not None:
+                self.is_master = False
+                self.start_trigger_type = nidcpower.TriggerType.DIGITAL_EDGE
+                self.digital_edge_start_trigger_input_terminal = up[
+                    "startTriggerInputTerminal"
+                ]
+
+            self.current_level_range = up["current_level_range"]
+            self.voltage_limit = up["voltage_limit"]
+            self.voltage_limit_range = up["voltage_limit_range"]
+
+            self.create_advanced_sequence(
+                sequence_name=self.nibt_session_name,
+                property_names=self.properties_used,
+                set_as_active_sequence=True,
+            )
+
+            for stepParams in up["advanced_sequence_steps"]:
+                self.create_advanced_sequence_step(set_as_active_step=True)
+                self.source_delay = stepParams["source_delay"]
+                self.output_function = nidcpower.OutputFunction.DC_CURRENT
+                self.current_level = stepParams["current_level"]
+                self.sequence_step_delta_time_enabled = True
+                self.sequence_step_delta_time = stepParams["deltaTime"]
+                # Note: Sequence Step Delta Time does not apply to the final step of the final
+                # iteration of a sequence (refer to NI docs).
+            self.sequence_loop_count = up["advanced_sequence_loops"]
+
+        except Exception as e:
+            raise Exception(f"{self.__class__.__name__}.{cfr().f_code.co_name}(); {e}")
+
+

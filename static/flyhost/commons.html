@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>commons module &mdash; flyhost 3.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using the Configurations" href="config.html" />
+    <link rel="prev" title="app module" href="app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flyhost
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userconfig.html">Editing user config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">flyhost</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Using the Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="host.html">host module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flyhost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">flyhost</a> &raquo;</li>
+      <li>commons module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/commons.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-commons">
+<span id="commons-module"></span><h1>commons module<a class="headerlink" href="#module-commons" title="Permalink to this headline"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="commons.InvalidConfigError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">InvalidConfigError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.InvalidConfigError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Custom Exception Error class for invalid NI configurations</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="commons.InvalidPathError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">InvalidPathError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.InvalidPathError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Custom Exception Error class for invalid path</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="commons.UserConfigError">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">UserConfigError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.UserConfigError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>An Exception raised due to invalid user input
+from the user-configuration file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.check_for_duplicated_filepath">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">check_for_duplicated_filepath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">logging.Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.check_for_duplicated_filepath" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.classtimer">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">classtimer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.classtimer" title="Permalink to this definition"></a></dt>
+<dd><p>Wrapper function to compute how much time a function takes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>function</em><em> or </em><em>method</em>) – function object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.convert_timestamp_to_timestr">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">convert_timestamp_to_timestr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strformat</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'%Y-%m-%d</span> <span class="pre">%H:%M:%S'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.convert_timestamp_to_timestr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.erase_and_init">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">erase_and_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.erase_and_init" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.filter_os_safe_filename">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">filter_os_safe_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.filter_os_safe_filename" title="Permalink to this definition"></a></dt>
+<dd><p>Use regex to filter only OS-safe filenames
+illegal characters will be replaced with “”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – value</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>string without illegal characters</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.filter_strings">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">filter_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.filter_strings" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.get_md5_checksum">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">get_md5_checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join_list_char</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.get_md5_checksum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.get_path_bundles">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">get_path_bundles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#commons.get_path_bundles" title="Permalink to this definition"></a></dt>
+<dd><p>Critical function for pyinstaller compiled apps.
+If app is run from a frozen bundle, the cwd will need to be extracted via
+a different method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Path to the bundles folder</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.get_time">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetimestrformat</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'%Y%m%d_%H%M%S'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_microseconds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.get_time" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the datetime string at the time of function call
+:param datetimestrformat: datetime string format, defaults to “%Y%m%d_%H%M%S”
+:type datetimestrformat: str, optional
+:return: datetime in string format
+:rtype: str</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.get_win_serialnumber">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">get_win_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.get_win_serialnumber" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.open_folder">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">open_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">logging.Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.open_folder" title="Permalink to this definition"></a></dt>
+<dd><p>triggers the OS to open the folderpath</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – logger</p></li>
+<li><p><strong>path</strong> (<em>Path</em>) – folderpath to open</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commons.output">
+<span class="sig-prename descclassname"><span class="pre">commons.</span></span><span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">logging.Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pathlevels</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logleveldebug</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commons.output" title="Permalink to this definition"></a></dt>
+<dd><p>Template function to print out nice logs for generated output files
+Logs only the filename, and last few parents (configurable)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – logger</p></li>
+<li><p><strong>fpath</strong> (<em>Path</em>) – path object to be logged pretty</p></li>
+<li><p><strong>pathlevels</strong> (<em>int</em><em>, </em><em>optional</em>) – last n number of parents to be log, defaults to 1</p></li>
+<li><p><strong>space</strong> (<em>int</em><em>, </em><em>optional</em>) – number of spaces to be printed before the string, defaults to 1</p></li>
+<li><p><strong>logleveldebug</strong> (<em>bool</em><em>, </em><em>optional</em>) – use logging.debug, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="app.html" class="btn btn-neutral float-left" title="app module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="Using the Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app module &mdash; flyhost 3.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="commons module" href="commons.html" />
+    <link rel="prev" title="flyhost" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flyhost
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userconfig.html">Editing user config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">flyhost</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commons.html">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Using the Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="host.html">host module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flyhost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">flyhost</a> &raquo;</li>
+      <li>app module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-app">
+<span id="app-module"></span><h1>app module<a class="headerlink" href="#module-app" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.App">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">App</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.App" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinterdnd2.TkinterDnD.Tk</span></code></p>
+<p>Main app interface</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.App.quit_app">
+<span class="sig-name descname"><span class="pre">quit_app</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.App.quit_app" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.App.update_results">
+<span class="sig-name descname"><span class="pre">update_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'PASS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.App.update_results" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.AppMenuBar">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">AppMenuBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.Menu</span></code></p>
+<p>Configure the menu bar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.AppMenuBar.activate_license">
+<span class="sig-name descname"><span class="pre">activate_license</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar.activate_license" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.AppMenuBar.factory_reset">
+<span class="sig-name descname"><span class="pre">factory_reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar.factory_reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.AppMenuBar.get_recipes">
+<span class="sig-name descname"><span class="pre">get_recipes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar.get_recipes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.AppMenuBar.load_recipe">
+<span class="sig-name descname"><span class="pre">load_recipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar.load_recipe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.AppMenuBar.make_offline_token">
+<span class="sig-name descname"><span class="pre">make_offline_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar.make_offline_token" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.DefineTkStyle">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">DefineTkStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DefineTkStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Style</span></code></p>
+<p>Configure styles from themed TK</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DefineTkStyle.set_app_icon">
+<span class="sig-name descname"><span class="pre">set_app_icon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.DefineTkStyle.set_app_icon" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.DragAndDrop">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">DragAndDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accepts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to enable drag and drop in a tk Widget</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop">
+<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop" title="Permalink to this definition"></a></dt>
+<dd><p>triggers actions when drop successful</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_enter">
+<span class="sig-name descname"><span class="pre">drop_enter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_enter" title="Permalink to this definition"></a></dt>
+<dd><p>Set the actions when drop event happens</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_leave">
+<span class="sig-name descname"><span class="pre">drop_leave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_leave" title="Permalink to this definition"></a></dt>
+<dd><p>triggers action when leave widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_position">
+<span class="sig-name descname"><span class="pre">drop_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_position" title="Permalink to this definition"></a></dt>
+<dd><p>print(‘Position: x %d, y %d’ %(event.x_root, event.y_root))</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.EngineeringFrame">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">EngineeringFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">notebook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Frame</span></code></p>
+<p>Setup for the Engineering/Debugging frame in UI
+(Separated by Tabs in Notebook)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.EngineeringFrame.evaluate_full_data">
+<span class="sig-name descname"><span class="pre">evaluate_full_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame.evaluate_full_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.EngineeringFrame.export_all_to_excel">
+<span class="sig-name descname"><span class="pre">export_all_to_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame.export_all_to_excel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.EngineeringFrame.load_recipe">
+<span class="sig-name descname"><span class="pre">load_recipe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame.load_recipe" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.EngineeringFrame.read_stdf">
+<span class="sig-name descname"><span class="pre">read_stdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame.read_stdf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.EngineeringFrame.run_single">
+<span class="sig-name descname"><span class="pre">run_single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame.run_single" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FW">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FW</span></span><a class="headerlink" href="#app.FW" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Functional widgets
+Contains a list of functional tk widgets, facilitates enabling/disabling
+of these widgets in the situations where functional lock is required.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FW.add_widget">
+<span class="sig-name descname"><span class="pre">add_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tkinter.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'unnamed'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FW.add_widget" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget</strong> (<em>tk.Widget</em>) – Functional widget object</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – name of the widget, defaults to ‘unnamed’</p></li>
+<li><p><strong>name</strong> – category name, defaults to ‘unnamed’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FW.disable_widgets">
+<span class="sig-name descname"><span class="pre">disable_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.FW.disable_widgets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FW.enable_widgets">
+<span class="sig-name descname"><span class="pre">enable_widgets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.FW.enable_widgets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameConsole">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameConsole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Frame</span></code></p>
+<p>Poll messages from a logging queue and display them in a scrolled text widget</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FrameConsole.change_log_level">
+<span class="sig-name descname"><span class="pre">change_log_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole.change_log_level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FrameConsole.clear_console_logs">
+<span class="sig-name descname"><span class="pre">clear_console_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear_all</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole.clear_console_logs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FrameConsole.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole.display" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FrameConsole.poll_log_queue">
+<span class="sig-name descname"><span class="pre">poll_log_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole.poll_log_queue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameFooter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameFooter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameFooter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Frame</span></code></p>
+<p>Configure Footer frame in UI</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FrameFooter.clear_data">
+<span class="sig-name descname"><span class="pre">clear_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameFooter.clear_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameHeader">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameHeader" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Frame</span></code></p>
+<p>Configure Header frame in UI</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.MainFrame_Main">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">MainFrame_Main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">notebook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.MainFrame_Main" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tkinter.ttk.Frame</span></code></p>
+<p>Configure Main frame in UI (Separated by Tabs in Notebook)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.MainFrame_Main.open_folder">
+<span class="sig-name descname"><span class="pre">open_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderpath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.MainFrame_Main.open_folder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.MainFrame_Main.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.MainFrame_Main.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.QueueHandler">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">QueueHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.QueueHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></p>
+<p>Class to send logging records to a queue
+It can be used from different threads
+The ConsoleUi class polls this queue to display records in a ScrolledText widget</p>
+<p>Example from Moshe Kaplan: <a class="reference external" href="https://gist.github.com/moshekaplan/c425f861de7bbf28ef06">https://gist.github.com/moshekaplan/c425f861de7bbf28ef06</a>
+(<a class="reference external" href="https://stackoverflow.com/questions/13318742/python-logging-to-tkinter-text-widget">https://stackoverflow.com/questions/13318742/python-logging-to-tkinter-text-widget</a>) is not thread safe!
+See <a class="reference external" href="https://stackoverflow.com/questions/43909849/tkinter-python-crashes-on-new-thread-trying-to-log-on-main-thread">https://stackoverflow.com/questions/43909849/tkinter-python-crashes-on-new-thread-trying-to-log-on-main-thread</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.QueueHandler.emit">
+<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.QueueHandler.emit" title="Permalink to this definition"></a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.Task">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">daemon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.Task" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>Class for creating task to run in parallel threads</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.main">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.main" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.retry">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">retry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exceptions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.retry" title="Permalink to this definition"></a></dt>
+<dd><p>Retry Decorator
+retries the wrapped function <cite>times</cite> times if exceptions is listed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>int</em>) – int</p></li>
+<li><p><strong>exceptions</strong> (<em>Tuple of Exceptions</em>) – Lists of Exceptions that will trigger retry attempt</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="flyhost" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="commons.html" class="btn btn-neutral float-right" title="commons module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

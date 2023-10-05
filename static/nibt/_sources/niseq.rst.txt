@@ -1,0 +1,6 @@
+niseq module
+============
+
+.. automodule:: niseq
+   :members:
+   :show-inheritance:

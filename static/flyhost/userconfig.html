@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editing user config &mdash; flyhost 3.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release Notes" href="releasenotes.html" />
+    <link rel="prev" title="Getting Started" href="getstarted.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flyhost
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Editing user config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#self-explanatory-settings">Self-explanatory settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algo-related-settings">Algo-related settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialnumber-algorithm">SerialNumber algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#report-settings">Report settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">flyhost</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flyhost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Editing user config</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/userconfig.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="editing-user-config">
+<h1>Editing user config<a class="headerlink" href="#editing-user-config" title="Permalink to this headline"></a></h1>
+<section id="self-explanatory-settings">
+<h2>Self-explanatory settings<a class="headerlink" href="#self-explanatory-settings" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe_version</span><span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span>
+<span class="n">recipe_name</span><span class="p">:</span> <span class="s2">&quot;ProjectX_STDF_Converter&quot;</span>
+<span class="n">number_of_lines_after_clear_log</span><span class="p">:</span> <span class="mi">100</span>
+<span class="n">full_debugger_mode</span><span class="p">:</span> <span class="kc">False</span>
+
+<span class="n">user_OS_default</span><span class="p">:</span> <span class="s1">&#39;~/Documents/&#39;</span>
+<span class="n">user_working_dir_name</span><span class="p">:</span> <span class="s2">&quot;_TOOLS-flyhost&quot;</span>
+<span class="n">folders_key_names</span><span class="p">:</span>
+   <span class="n">inpf01</span><span class="p">:</span> <span class="s2">&quot;01-Input-ProdData&quot;</span>
+   <span class="n">outf01</span><span class="p">:</span> <span class="s2">&quot;02-Output-Datalog&quot;</span>
+   <span class="n">outf02</span><span class="p">:</span> <span class="s2">&quot;03-Debug&quot;</span>
+<span class="n">files_key_names</span><span class="p">:</span>
+<span class="n">foms</span><span class="p">:</span> <span class="s2">&quot;foms-ProjectX_STDF_Converter.csv&quot;</span>
+<span class="n">folders_to_clear</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;outf01&#39;</span><span class="p">,</span><span class="s1">&#39;outf02&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="algo-related-settings">
+<h2>Algo-related settings<a class="headerlink" href="#algo-related-settings" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipeConfigurations</span><span class="p">:</span>
+   <span class="n">file_input_format</span><span class="p">:</span> <span class="s2">&quot;stdf&quot;</span>
+   <span class="n">file_timestr_format</span><span class="p">:</span> <span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">_%H%M%S&quot;</span>
+   <span class="n">file_output_format</span><span class="p">:</span> <span class="s2">&quot;csv&quot;</span>
+   <span class="n">tester_name</span><span class="p">:</span> <span class="s2">&quot;FFHS01&quot;</span>
+
+<span class="n">timestamp_algorithm</span><span class="p">:</span>
+   <span class="n">column_name_dut_timestamp</span><span class="p">:</span> <span class="s2">&quot;TDI-Time-Stamp/&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Use the <cite>Debug UI</cite> to generate an excel file to help the user understand
+the data structure used by the Cohu tester</p></li>
+<li><p>Parameteric FOM names, results, specs, etc. are mostly located in the
+<cite>PTR</cite> excel sheet</p></li>
+<li><p>Hence, the user can edit this section accordingly</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datatable_config</span><span class="p">:</span>
+   <span class="n">datatable_name</span><span class="p">:</span> <span class="s2">&quot;PTR&quot;</span>
+   <span class="n">column_name_fom</span><span class="p">:</span> <span class="s2">&quot;TEST_TXT&quot;</span>
+   <span class="n">column_name_value</span><span class="p">:</span> <span class="s2">&quot;RESULT&quot;</span>
+   <span class="n">column_name_LSL</span><span class="p">:</span> <span class="s2">&quot;LO_LIMIT&quot;</span>
+   <span class="n">column_name_USL</span><span class="p">:</span> <span class="s2">&quot;HI_LIMIT&quot;</span>
+   <span class="n">column_name_units</span><span class="p">:</span> <span class="s2">&quot;UNITS&quot;</span>
+   <span class="n">tester_socket_id</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;HEAD_NUM&quot;</span><span class="p">,</span> <span class="s2">&quot;SITE_NUM&quot;</span><span class="p">]</span>
+   <span class="n">var_dut_id</span><span class="p">:</span> <span class="s2">&quot;Unique_Device_ID/&quot;</span>
+   <span class="n">var_wafer_id</span><span class="p">:</span> <span class="s2">&quot;Unique_Wafer_ID/&quot;</span>
+   <span class="n">start_keyword</span><span class="p">:</span> <span class="s2">&quot;before_SERIAL0007/7/X&quot;</span>
+   <span class="n">end_keyword</span><span class="p">:</span> <span class="n">null</span>
+
+<span class="n">timestamp_algorithm</span><span class="p">:</span>
+   <span class="n">column_name_dut_timestamp</span><span class="p">:</span> <span class="s2">&quot;TDI-Time-Stamp/&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>The algorithm will start at the first datarow, iterates (downwards) row-by-row
+to find the <cite>start_keyword</cite></p></li>
+<li><p>Every row after <cite>start_keyword</cite> will be logged into a data <cite>dictionary</cite>,
+containing <cite>fom_name: result_value</cite></p></li>
+<li><p>Upon reaching the next <cite>start_keyword</cite>, the algorithm will wrap up all the data
+and tag the associated <cite>SerialNumber</cite>. Refer to the section below for serialnumber_algorithm.</p></li>
+<li><p>The <cite>end_keyword</cite> is a dummy feature. There are no associated code implemented yet.</p></li>
+<li><p>The algorithm will use <cite>column_name_dut_timestamp</cite> to find the timestamp (in seconds), which
+is the difference between the timestamp of the DUT actual time tested - timestamp of lot start</p></li>
+</ol>
+</li>
+</ol>
+</section>
+
+<section id="report-settings">
+<h2>Report settings<a class="headerlink" href="#report-settings" title="Permalink to this headline"></a></h2>
+<p>The list of parametric FOMs will be automatically populated, based on the STDF file input.
+Users can select which FOM to be reported, by editing <cite>foms-$RECIPE_NAME.csv</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the event of error, i.e. some wrong values or corrupted data in <cite>foms-$RECIPE_NAME.csv</cite>, <strong>delete</strong> the file.
+The app will repopulate the parameters to generate a new file. Edit that new file again to modify the
+configurations accordingly.</p>
+</div>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Values from <cite>original_fom</cite> column are the parametric names found in the original STDF file.
+Use the <cite>fom</cite> column to change the reported name to be printed in <cite>datalog.csv</cite>.</p>
+<p>Test specs are also extracted from the original STDF files. It is <strong>not</strong> possible to modify test specs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We assume that each DUT has the same test specs for the same parametric name. Test specs that are
+printed in the <cite>datalog.csv</cite> are the last USL/LSL/units specs extracted from the data.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getstarted.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="releasenotes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

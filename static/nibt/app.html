@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>app module &mdash; nibt 8.2.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="config module" href="config.html" />
+    <link rel="prev" title="host module" href="host.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nibt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create.html">Creating recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prod.html">Production usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="futuredev.html">Future Dev</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nibt</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="niseq.html">niseq module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="host.html">host module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.AppMenuBar"><code class="docutils literal notranslate"><span class="pre">AppMenuBar</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.DefineTkStyle"><code class="docutils literal notranslate"><span class="pre">DefineTkStyle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.DragAndDrop"><code class="docutils literal notranslate"><span class="pre">DragAndDrop</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.DragAndDrop.drop"><code class="docutils literal notranslate"><span class="pre">DragAndDrop.drop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.DragAndDrop.drop_enter"><code class="docutils literal notranslate"><span class="pre">DragAndDrop.drop_enter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.DragAndDrop.drop_leave"><code class="docutils literal notranslate"><span class="pre">DragAndDrop.drop_leave()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app.DragAndDrop.drop_position"><code class="docutils literal notranslate"><span class="pre">DragAndDrop.drop_position()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#app.EngineeringFrame"><code class="docutils literal notranslate"><span class="pre">EngineeringFrame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.FW"><code class="docutils literal notranslate"><span class="pre">FW</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.FW.add_widget"><code class="docutils literal notranslate"><span class="pre">FW.add_widget()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#app.FrameConsole"><code class="docutils literal notranslate"><span class="pre">FrameConsole</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.FrameFooter"><code class="docutils literal notranslate"><span class="pre">FrameFooter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.FrameHeader"><code class="docutils literal notranslate"><span class="pre">FrameHeader</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.MainFrame_Main"><code class="docutils literal notranslate"><span class="pre">MainFrame_Main</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.ProductionFrame_LEFT"><code class="docutils literal notranslate"><span class="pre">ProductionFrame_LEFT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.ProductionFrame_RIGHT"><code class="docutils literal notranslate"><span class="pre">ProductionFrame_RIGHT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.QueueHandler"><code class="docutils literal notranslate"><span class="pre">QueueHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app.QueueHandler.emit"><code class="docutils literal notranslate"><span class="pre">QueueHandler.emit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#app.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commons.html">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbmgr.html">dbmgr module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nibt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">nibt</a> &raquo;</li>
+      <li>app module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-app">
+<span id="app-module"></span><h1>app module<a class="headerlink" href="#module-app" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.App">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">App</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.App" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Tk</span></code></p>
+<p>Main app interface</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.AppMenuBar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">AppMenuBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.AppMenuBar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Menu</span></code></p>
+<p>Configure the menu bar</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.DefineTkStyle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">DefineTkStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DefineTkStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Style</span></code></p>
+<p>Configure styles from themed TK</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.DragAndDrop">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">DragAndDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accepts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dirs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to enable drag and drop in a tk Widget</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop">
+<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop" title="Permalink to this definition"></a></dt>
+<dd><p>triggers actions when drop successful</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_enter">
+<span class="sig-name descname"><span class="pre">drop_enter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_enter" title="Permalink to this definition"></a></dt>
+<dd><p>Set the actions when drop event happens</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_leave">
+<span class="sig-name descname"><span class="pre">drop_leave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_leave" title="Permalink to this definition"></a></dt>
+<dd><p>triggers action when leave widget</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.DragAndDrop.drop_position">
+<span class="sig-name descname"><span class="pre">drop_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.DragAndDrop.drop_position" title="Permalink to this definition"></a></dt>
+<dd><p>print(‘Position: x %d, y %d’ %(event.x_root, event.y_root))</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.EngineeringFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">EngineeringFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">notebook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.EngineeringFrame" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Setup for the Engineering/Debugging frame in UI
+(Separated by Tabs in Notebook)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FW</span></span><a class="headerlink" href="#app.FW" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Functional widgets
+Contains a list of functional tk widgets, facilitates enabling/disabling
+of these widgets in the situations where functional lock is required.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.FW.add_widget">
+<span class="sig-name descname"><span class="pre">add_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'unnamed'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FW.add_widget" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>widget</strong> (<em>tk.Widget</em>) – Functional widget object</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – name of the widget, defaults to ‘unnamed’</p></li>
+<li><p><strong>name</strong> – category name, defaults to ‘unnamed’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameConsole">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameConsole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameConsole" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Poll messages from a logging queue and display them in a scrolled text widget</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameFooter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameFooter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameFooter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Configure Footer frame in UI</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.FrameHeader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">FrameHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.FrameHeader" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Configure Header frame in UI</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.MainFrame_Main">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">MainFrame_Main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">notebook</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.MainFrame_Main" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Configure Main frame in UI (Separated by Tabs in Notebook)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.ProductionFrame_LEFT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">ProductionFrame_LEFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ProductionFrame_LEFT" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>UI setup for the LEFT side of the PRODUCTION Frame tab</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.ProductionFrame_RIGHT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">ProductionFrame_RIGHT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.ProductionFrame_RIGHT" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>UI setup for the RIGHT side of the PRODUCTION Frame tab</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.QueueHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">QueueHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.QueueHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Handler</span></code></p>
+<p>Class to send logging records to a queue
+It can be used from different threads
+The ConsoleUi class polls this queue to display records in a ScrolledText widget</p>
+<p>Example from Moshe Kaplan: <a class="reference external" href="https://gist.github.com/moshekaplan/c425f861de7bbf28ef06">https://gist.github.com/moshekaplan/c425f861de7bbf28ef06</a>
+(<a class="reference external" href="https://stackoverflow.com/questions/13318742/python-logging-to-tkinter-text-widget">https://stackoverflow.com/questions/13318742/python-logging-to-tkinter-text-widget</a>) is not thread safe!
+See <a class="reference external" href="https://stackoverflow.com/questions/43909849/tkinter-python-crashes-on-new-thread-trying-to-log-on-main-thread">https://stackoverflow.com/questions/43909849/tkinter-python-crashes-on-new-thread-trying-to-log-on-main-thread</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.QueueHandler.emit">
+<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.QueueHandler.emit" title="Permalink to this definition"></a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="app.Task">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">daemon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.Task" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Thread</span></code></p>
+<p>Class for creating task to run in parallel threads</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="app.retry">
+<span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">retry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exceptions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.retry" title="Permalink to this definition"></a></dt>
+<dd><p>Retry Decorator
+retries the wrapped function <cite>times</cite> times if exceptions is listed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>int</em>) – int</p></li>
+<li><p><strong>exceptions</strong> (<em>Tuple</em><em> of </em><em>Exceptions</em>) – Lists of Exceptions that will trigger retry attempt</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="host.html" class="btn btn-neutral float-left" title="host module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="config module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+Getting Started
+===============
+
+NIBT is easy to be installed. Distributable is released
+with easy to use step-by-step installer for Windows.
+
+
+Pre-requisites
+--------------
+
+- Hardware Requirements
+    - NI PXI Modular System
+    - Controller: PXIe-8840/8135, etc.
+    - SMU Cards: PXIe-4139/4140, etc.
+
+- Software Driver Requirements
+    - > nidcpower 20.0.0
+
+    .. note::
+
+      Lower versions of nidcpower might work, but I will not bother
+      to support. Critical function we need is Create_Advanced_Sequence,
+      and support for 10us from nidcpower 18.5 and above.
+
+    .. warning::
+
+      NI has completely stopped support for Win7 (from nidcpower 20.5.0 onwards)
+
+- Operating System Requirements
+    - Hardware 8840/8135 comes preinstalled with OS,
+    - Win7 [Version 6.1.7601]
+    - Win10 [Version 10.0.19044.2006]
+
+    .. warning::
+
+      Win7 is OFFICIALLY OUT OF SUPPORT. It will be
+      incredibly difficult to set up, even though it is possible.
+      This version of NIBT is specifically made to support win7,
+      but be warned that future feature upgrades / supports will
+      not be possible.
+
+- Other Special Requirements
+
+    - Windows 7, SP1, KB4490628
+    - Depending on how outdated your win7 is, you need to check and make
+      sure the OS is capable of SHA256 certificate signing.
+    - `Link to Microsoft Support <https://support.microsoft.com/en-us/topic/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus-64d1c82d-31ee-c273-3930-69a4cde8e64f>`_
+
+
+Quickstart
+----------
+
+#. Download the *installer.exe*. Open with administrative permissions.
+
+#. Follow the setup instructions. Recommended to install in `C:/Programs Files (x86)` folder,
+   this will ensure that any standard user (for *Operator*) can execute the app.
+
+#. Allow the app to access *My Documents* folder (in case there are security prompts)
+
+#. If the app loads successfully, you will be able to see the screenhot below
+
+    .. figure:: _images/production_ui.png
+       :alt: production_ui
+       :align: center
+       :width: 400px
+

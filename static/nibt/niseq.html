@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>niseq module &mdash; nibt 8.2.5 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="host module" href="host.html" />
+    <link rel="prev" title="nibt" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nibt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create.html">Creating recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prod.html">Production usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="futuredev.html">Future Dev</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nibt</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">niseq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.CreateLogger"><code class="docutils literal notranslate"><span class="pre">CreateLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.CreateLogger.close_logger"><code class="docutils literal notranslate"><span class="pre">CreateLogger.close_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.CreateLogger.get_filename_info"><code class="docutils literal notranslate"><span class="pre">CreateLogger.get_filename_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.CreateLogger.get_software_version_info"><code class="docutils literal notranslate"><span class="pre">CreateLogger.get_software_version_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.CreateLogger.setup_logger"><code class="docutils literal notranslate"><span class="pre">CreateLogger.setup_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.DataExtracted"><code class="docutils literal notranslate"><span class="pre">DataExtracted</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.DataExtracted.df"><code class="docutils literal notranslate"><span class="pre">DataExtracted.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.DataExtracted.step_name"><code class="docutils literal notranslate"><span class="pre">DataExtracted.step_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.DataProcessor.convert_tdms_to_dataframe"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_tdms_to_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.DataProcessor.write_group_data_to_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.write_group_data_to_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.DataProcessor.write_group_data_to_tdms"><code class="docutils literal notranslate"><span class="pre">DataProcessor.write_group_data_to_tdms()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.NI_Stepper"><code class="docutils literal notranslate"><span class="pre">NI_Stepper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.NI_Stepper.run"><code class="docutils literal notranslate"><span class="pre">NI_Stepper.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.NI_Stepper.sanity_checker"><code class="docutils literal notranslate"><span class="pre">NI_Stepper.sanity_checker()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.NibtSmuSession"><code class="docutils literal notranslate"><span class="pre">NibtSmuSession</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.NibtSmuSession.get_actual_function"><code class="docutils literal notranslate"><span class="pre">NibtSmuSession.get_actual_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.NibtSmuSession.nibt_run"><code class="docutils literal notranslate"><span class="pre">NibtSmuSession.nibt_run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.StepData"><code class="docutils literal notranslate"><span class="pre">StepData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.StepData.results"><code class="docutils literal notranslate"><span class="pre">StepData.results</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#niseq.StepData.step_name"><code class="docutils literal notranslate"><span class="pre">StepData.step_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.generate_random_lotid"><code class="docutils literal notranslate"><span class="pre">generate_random_lotid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.generate_random_serialnumber"><code class="docutils literal notranslate"><span class="pre">generate_random_serialnumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.main_simulate_production"><code class="docutils literal notranslate"><span class="pre">main_simulate_production()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.run_single_test_function"><code class="docutils literal notranslate"><span class="pre">run_single_test_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.setup_SourceCurrent"><code class="docutils literal notranslate"><span class="pre">setup_SourceCurrent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niseq.setup_SourceVoltage"><code class="docutils literal notranslate"><span class="pre">setup_SourceVoltage()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="host.html">host module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commons.html">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dbmgr.html">dbmgr module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nibt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">nibt</a> &raquo;</li>
+      <li>niseq module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/niseq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-niseq">
+<span id="niseq-module"></span><h1>niseq module<a class="headerlink" href="#module-niseq" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.CreateLogger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">CreateLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.CreateLogger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates a logger (separate from main logger), to record tester
+events on the single DUT level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log</strong> (<em>logging.Logger</em>) – Logger object that is created</p></li>
+<li><p><strong>sublogger_filename</strong> (<em>str</em>) – DUT information, reflects all the variables specified
+in get_filename_info(args)</p></li>
+<li><p><strong>software_info</strong> (<em>str</em>) – software name and info, recipe name and info</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.CreateLogger.close_logger">
+<span class="sig-name descname"><span class="pre">close_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#niseq.CreateLogger.close_logger" title="Permalink to this definition"></a></dt>
+<dd><p>Close the logger object after testing DUT</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.CreateLogger.get_filename_info">
+<span class="sig-name descname"><span class="pre">get_filename_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.CreateLogger.get_filename_info" title="Permalink to this definition"></a></dt>
+<dd><p>Gets DUT information</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.CreateLogger.get_software_version_info">
+<span class="sig-name descname"><span class="pre">get_software_version_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#niseq.CreateLogger.get_software_version_info" title="Permalink to this definition"></a></dt>
+<dd><p>Records the version information into the logger</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.CreateLogger.setup_logger">
+<span class="sig-name descname"><span class="pre">setup_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.CreateLogger.setup_logger" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the logger</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logger</strong> (<em>logging.Logger</em>) – _description_</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.DataExtracted">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">DataExtracted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.DataExtracted" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niseq.DataExtracted.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#niseq.DataExtracted.df" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niseq.DataExtracted.step_name">
+<span class="sig-name descname"><span class="pre">step_name</span></span><a class="headerlink" href="#niseq.DataExtracted.step_name" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.DataProcessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">DataProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.DataProcessor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Process data fetched from nidcpower.Session, outputs to file
+Reads data from file output by self</p>
+<dl class="simple">
+<dt>input params:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param log</dt>
+<dd class="field-odd"><p>logger object</p>
+</dd>
+<dt class="field-even">type log</dt>
+<dd class="field-even"><p>logging.Logger</p>
+</dd>
+<dt class="field-odd">param cfg</dt>
+<dd class="field-odd"><p>user configurations</p>
+</dd>
+<dt class="field-even">type cfg</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd>
+<dt>inputs / attributes:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param raw_data</dt>
+<dd class="field-odd"><p>list of namedtuples results from nidcpower.fetch_multiple(),
+defaults to None</p>
+</dd>
+<dt class="field-even">type raw_data</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">param tdms_path</dt>
+<dd class="field-odd"><p>saved data into tdms file container, defaults to None</p>
+</dd>
+<dt class="field-even">type tdms_path</dt>
+<dd class="field-even"><p>pathlib.Path</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>None, outputs to file</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.DataProcessor.convert_tdms_to_dataframe">
+<span class="sig-name descname"><span class="pre">convert_tdms_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdms_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#niseq.DataProcessor.convert_tdms_to_dataframe" title="Permalink to this definition"></a></dt>
+<dd><p>Converts tdms data file into a pandas DataFrame object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdms_path</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>output</strong> (<em>bool</em><em>, </em><em>optional</em>) – _description_, defaults to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>df</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.DataProcessor.write_group_data_to_csv">
+<span class="sig-name descname"><span class="pre">write_group_data_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="headerlink" href="#niseq.DataProcessor.write_group_data_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the data into CSV file format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_data</strong> (<em>list</em><em>[</em><em>namedtuple</em><em>]</em>) – list of namedtuple output from nidcpower.Session.fetch_all()</p></li>
+<li><p><strong>folderpath</strong> (<em>Path</em><em>, </em><em>optional</em>) – _description_, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file path of the tdms data file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.DataProcessor.write_group_data_to_tdms">
+<span class="sig-name descname"><span class="pre">write_group_data_to_tdms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span></span></span><a class="headerlink" href="#niseq.DataProcessor.write_group_data_to_tdms" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the data into tdms file format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_data</strong> (<em>list</em><em>[</em><em>namedtuple</em><em>]</em>) – list of namedtuple output from nidcpower.Session.fetch_all()</p></li>
+<li><p><strong>folderpath</strong> (<em>Path</em><em>, </em><em>optional</em>) – _description_, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file path of the tdms data file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.NI_Stepper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">NI_Stepper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.NI_Stepper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Test sequence class
+Configures the sequences (or A.K.A. recipe).
+Provide functions to run steps in sequence and trigger sessions concurrently</p>
+<p>ATTRIBUTES
+:param current_step: _description_
+:type current_step: str
+:param current_sessions: _description_
+:type current_sessions: list
+:param current_data: _description_
+:type current_data: dict
+:param completed_steps: _description_
+:type completed_steps: list
+:param datalist: _description_
+:type datalist: list</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.NI_Stepper.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#niseq.NI_Stepper.run" title="Permalink to this definition"></a></dt>
+<dd><p>Runs the full test srequence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of data tuples collected</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.NI_Stepper.sanity_checker">
+<span class="sig-name descname"><span class="pre">sanity_checker</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#niseq.NI_Stepper.sanity_checker" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if user configured parameters are okay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="commons.html#commons.InvalidConfigParamError" title="commons.InvalidConfigParamError"><strong>InvalidConfigParamError</strong></a> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.NibtSmuSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">NibtSmuSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nibt_session_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'nil'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.NibtSmuSession" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></p>
+<p>inherits from nidcpower.Session
+Takes user parameters to initialise nidcpower.Session object
+Creates additional attributes to interface with multi-threaded trigger functions later.</p>
+<dl class="simple">
+<dt>input params:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param log</dt>
+<dd class="field-odd"><p>logger object</p>
+</dd>
+<dt class="field-even">type log</dt>
+<dd class="field-even"><p>logging.Logger</p>
+</dd>
+<dt class="field-odd">param user_params</dt>
+<dd class="field-odd"><p>user configurations</p>
+</dd>
+<dt class="field-even">type user_params</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd>
+<dt>attributes:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param nibt_session_name</dt>
+<dd class="field-odd"><p>user specified name for this nidcpower.Session, defaults to “nil”</p>
+</dd>
+<dt class="field-even">type nibt_session_name</dt>
+<dd class="field-even"><p>str, optional</p>
+</dd>
+<dt class="field-odd">param is_master</dt>
+<dd class="field-odd"><p>specifies whether this session is a master or slave</p>
+</dd>
+<dt class="field-even">type is_master</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param properties_used</dt>
+<dd class="field-odd"><p>defined in code. specifies ‘properties_used’ attribute required
+to create nidcpower.Session.create_advanced_sequence</p>
+</dd>
+<dt class="field-even">type properties_used</dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+<dt class="field-odd">param datasize</dt>
+<dd class="field-odd"><p>calculated length of data that is expected to be fetched, based
+on user configurations</p>
+</dd>
+<dt class="field-even">type datasize</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>nidcpower.Session object with added attributes (nibt_session_name, is_master,
+user_params, etc.)</p>
+</dd>
+<dt class="field-even">rtype</dt>
+<dd class="field-even"><p>nicdpower.Session</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.NibtSmuSession.get_actual_function">
+<span class="sig-name descname"><span class="pre">get_actual_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.NibtSmuSession.get_actual_function" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the actual function from the global namespace, based on string specified
+in the user configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function_name</strong> (<em>str</em>) – _description_</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="commons.html#commons.InvalidConfigParamError" title="commons.InvalidConfigParamError"><strong>InvalidConfigParamError</strong></a> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>function address</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="niseq.NibtSmuSession.nibt_run">
+<span class="sig-name descname"><span class="pre">nibt_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#niseq.NibtSmuSession.nibt_run" title="Permalink to this definition"></a></dt>
+<dd><p>function wrapper for nidcpower.Session.initiate()
+For master sessions, sleep 0.1s before initiate
+For slave sessions, initiate
+This function is build for multithreaded trigger</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>nidcpower.Session.fetch_multiple()</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>nidcpower.Session.fetch_multiple()</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="niseq.StepData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">StepData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.StepData" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niseq.StepData.results">
+<span class="sig-name descname"><span class="pre">results</span></span><a class="headerlink" href="#niseq.StepData.results" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="niseq.StepData.step_name">
+<span class="sig-name descname"><span class="pre">step_name</span></span><a class="headerlink" href="#niseq.StepData.step_name" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.generate_random_lotid">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">generate_random_lotid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#niseq.generate_random_lotid" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a random lotid (1 lotid per day), for testing purposes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.generate_random_serialnumber">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">generate_random_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">19</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#niseq.generate_random_serialnumber" title="Permalink to this definition"></a></dt>
+<dd><p>generates a random string of n characters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – number of characters in the generated str, defaults to 19</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>random serialnumber</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.main_simulate_production">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">main_simulate_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loops</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.main_simulate_production" title="Permalink to this definition"></a></dt>
+<dd><p>instructions to simulate production run, and operator inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfg</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>loops</strong> (<em>int</em><em>, </em><em>optional</em>) – _description_, defaults to 3</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.run_single_test_function">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">run_single_test_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#niseq.run_single_test_function" title="Permalink to this definition"></a></dt>
+<dd><p>instructions to run a single test step</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.setup_SourceCurrent">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">setup_SourceCurrent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.setup_SourceCurrent" title="Permalink to this definition"></a></dt>
+<dd><p>Function to interface with nidcpower API.
+self.user_params contains dict containing the user configurations to create
+a nidcpower.Session object to source current.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#niseq.NibtSmuSession" title="niseq.NibtSmuSession"><em>NibtSmuSession</em></a>) – NibtSmuSession object, which is inherited from nidcpower.Session</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="niseq.setup_SourceVoltage">
+<span class="sig-prename descclassname"><span class="pre">niseq.</span></span><span class="sig-name descname"><span class="pre">setup_SourceVoltage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#niseq.setup_SourceVoltage" title="Permalink to this definition"></a></dt>
+<dd><p>Function to interface with nidcpower API.
+self.user_params contains dict containing the user configurations to create
+a nidcpower.Session object to source voltage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#niseq.NibtSmuSession" title="niseq.NibtSmuSession"><em>NibtSmuSession</em></a>) – NibtSmuSession object, which is inherited from nidcpower.Session</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="nibt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="host.html" class="btn btn-neutral float-right" title="host module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+host module
+===========
+
+.. automodule:: host
+   :members:
+   :show-inheritance:

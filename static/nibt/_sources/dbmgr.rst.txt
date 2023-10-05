@@ -1,0 +1,6 @@
+dbmgr module
+============
+
+.. automodule:: dbmgr
+   :members:
+   :show-inheritance:

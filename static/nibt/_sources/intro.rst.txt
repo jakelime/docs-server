@@ -1,0 +1,13 @@
+Introduction
+============
+
+NIBT is built for test engineers to quickly develop full
+production ready test software using the NI PXI modular
+test instruments.
+
+It has a simple graphical user interface for operators,
+and also debugging GUI to help engineers to debug / configure
+recipes.
+
+NIBT is aimed to be easy to use for anyone, no piror knowledge
+of any coding language is required.

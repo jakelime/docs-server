@@ -1,0 +1,46 @@
+.. flyhost documentation master file, created by
+   sphinx-quickstart on Fri Oct 14 22:26:12 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to flyhost's documentation!
+===================================
+
+flyhost is an app designed to decipher Cohu tester's STDF output
+into our standard test datalog format.
+
+Simply head to :doc:`downloads`, then read :doc:`getstarted` guide to get
+started.
+
+
+
+Latest download
+===============
+
+#. **MacOS**
+
+   #. :download:`flyhost_3.0.3.dmg <_downloads/flyhost_v3.0.3.dmg>`
+
+#. **Sample files**
+
+   #. :download:`flyhost_3.0.2 Sample Files <_downloads/flyhost_v3.0.2_samplefiles.7z>`
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   downloads
+   getstarted
+   userconfig
+   releasenotes
+   modules
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

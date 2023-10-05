@@ -1,0 +1,148 @@
+Editing user config
+===================
+
+Self-explanatory settings
+-------------------------
+
+   .. code:: python
+
+      recipe_version: "0.0.1"
+      recipe_name: "FlyingFish_STDF_Converter"
+      number_of_lines_after_clear_log: 100
+      full_debugger_mode: False
+
+      user_OS_default: '~/Documents/'
+      user_working_dir_name: "_TOOLS-flyhost"
+      folders_key_names:
+         inpf01: "01-Input-ProdData"
+         outf01: "02-Output-Datalog"
+         outf02: "03-Debug"
+      files_key_names:
+      foms: "foms-FlyingFish_STDF_Converter.csv"
+      folders_to_clear: ['outf01','outf02']
+
+
+
+Algo-related settings
+---------------------
+
+.. code:: python
+
+   recipeConfigurations:
+      file_input_format: "stdf"
+      file_timestr_format: "%Y%m%d_%H%M%S"
+      file_output_format: "csv"
+      tester_name: "FFHS01"
+
+   timestamp_algorithm:
+      column_name_dut_timestamp: "TDI-Time-Stamp/"
+
+#. Use the `Debug UI` to generate an excel file to help the user understand
+   the data structure used by the Cohu tester
+
+#. Parameteric FOM names, results, specs, etc. are mostly located in the
+   `PTR` excel sheet
+
+#. Hence, the user can edit this section accordingly
+
+   .. code:: python
+
+      datatable_config:
+         datatable_name: "PTR"
+         column_name_fom: "TEST_TXT"
+         column_name_value: "RESULT"
+         column_name_LSL: "LO_LIMIT"
+         column_name_USL: "HI_LIMIT"
+         column_name_units: "UNITS"
+         tester_socket_id: ["_", "HEAD_NUM", "SITE_NUM"]
+         var_dut_id: "Unique_Device_ID/"
+         var_wafer_id: "Unique_Wafer_ID/"
+         start_keyword: "before_SERIAL0007/7/X"
+         end_keyword: null
+
+      timestamp_algorithm:
+         column_name_dut_timestamp: "TDI-Time-Stamp/"
+
+   #. The algorithm will start at the first datarow, iterates (downwards) row-by-row
+      to find the `start_keyword`
+
+   #. Every row after `start_keyword` will be logged into a data `dictionary`,
+      containing `fom_name: result_value`
+
+   #. Upon reaching the next `start_keyword`, the algorithm will wrap up all the data
+      and tag the associated `SerialNumber`. Refer to the section below for serialnumber_algorithm.
+
+   #. The `end_keyword` is a dummy feature. There are no associated code implemented yet.
+
+   #. The algorithm will use `column_name_dut_timestamp` to find the timestamp (in seconds), which
+      is the difference between the timestamp of the DUT actual time tested - timestamp of lot start
+
+
+
+SerialNumber algorithm
+----------------------
+
+.. code:: python
+
+   serialnumber_algorithm:
+      'after_SERIAL0007/7/X': 1
+      'after_SERIAL0815/7/X': 256
+      'after_SERIAL1623/7/X': 65536
+      'after_SERIAL2431/7/X': 16777216
+
+#. The `SerialNumber` is a chip ID that is "burn" into the chip by the tester. Sequence done
+   by the tester is as follow:
+
+   #. `before_XXXX` attempts to read the chip ID?
+
+   #. `calc_XXXX` calculates what is the ID to be set into the chip?
+
+   #. `set_XXXX` attempts to set the ID into the chip?
+
+   #. `after_gb_XXXX` attempts to ??
+
+   #. `after_XXXX` attempts to read back the chip ID after full test?
+
+#. The current decipher algorithm uses `after_XXXX` to label `SerialNumber` for the test data collected
+
+#. The SN algorthm stores a long integer as `Hex`, using this methodology:
+
+   - `after_SERIAL0007` accepts 0-255, to be multiplied by 2^0
+
+   - `after_SERIAL0815` accepts 0-255, to be multiplied by 2^8
+
+   - `after_SERIAL1623` accepts 0-255, to be multiplied by 2^16
+
+   - `after_SERIAL2431` accepts 0-255, to be multiplied by 2^24
+
+   - Result `SerialNumber` is the dot product of the 4
+
+
+
+Report settings
+---------------
+
+The list of parametric FOMs will be automatically populated, based on the STDF file input.
+Users can select which FOM to be reported, by editing `foms-$RECIPE_NAME.csv`.
+
+.. note::
+   In the event of error, i.e. some wrong values or corrupted data in `foms-$RECIPE_NAME.csv`, **delete** the file.
+   The app will repopulate the parameters to generate a new file. Edit that new file again to modify the
+   configurations accordingly.
+
+.. figure:: _images/foms_csv.png
+    :alt: foms configuration csv file
+    :align: center
+    :width: 300px
+
+|
+
+Values from `original_fom` column are the parametric names found in the original STDF file.
+Use the `fom` column to change the reported name to be printed in `datalog.csv`.
+
+Test specs are also extracted from the original STDF files. It is **not** possible to modify test specs.
+
+.. note::
+   We assume that each DUT has the same test specs for the same parametric name. Test specs that are
+   printed in the `datalog.csv` are the last USL/LSL/units specs extracted from the data.
+

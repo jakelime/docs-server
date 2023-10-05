@@ -1,0 +1,51 @@
+.. nibt documentation master file, created by
+   sphinx-quickstart on Mon Oct 10 10:17:16 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to nibt's documentation!
+================================
+
+NIBT is built for test engineers to quickly develop full
+production ready test software using the NI PXI modular
+test instruments.
+
+It has a simple graphical user interface for operators,
+and also debugging GUI to help engineers to debug / configure
+recipes.
+
+NIBT is aimed to be easy to use for anyone, no piror knowledge
+of any coding language is required.
+
+
+Latest download
+===============
+
+#. **Win**
+
+   #. :download:`nibt_v8.2.5_installer <_downloads/nibt_v8.2.5_installer.exe>`
+
+#. **Sample files**
+
+   #. N/A
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   intro
+   downloads
+   getstarted
+   create
+   prod
+   futuredev
+   modules
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

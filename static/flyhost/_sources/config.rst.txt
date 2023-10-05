@@ -1,0 +1,10 @@
+Using the Configurations
+========================
+
+Read :doc:`userconfig` for explanation on how to edit the
+configuration/recipe user file.
+
+.. automodule:: config
+   :members:
+   :undoc-members:
+   :show-inheritance:

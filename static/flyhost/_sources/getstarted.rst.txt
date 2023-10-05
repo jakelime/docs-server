@@ -1,0 +1,81 @@
+Getting Started
+===============
+
+
+
+Recommended Hardware and OS
+---------------------------
+
+- MacBook Pro (13-inch, 2020)
+- macOS v12.6 (21G115)
+- Min. 300MB disk space
+
+
+
+Quickstart for MacOS
+--------------------
+
+#. Download the disk image file *flyhost.dmg* from :doc:`downloads`
+
+#. Mount the disk image
+
+#. Drag and drop *flyhost.app* to Applications folder
+
+#. Allow the app permission to access *Documents* folder
+
+#. If the app loads successfully, you will be able to see the screenhot(s)
+   in the sections below
+
+
+Production Interface
+--------------------
+
+.. figure:: _images/prod_ui.png
+    :alt: production_ui
+    :align: center
+    :width: 500px
+
+#. Drag and drop the folder containing tester `output.stdf` files into
+   the `Input Folder` field. You may also choose to leave it as `default path`,
+   then `Open INPUT folder`, then load the `output.stdf` files into the folder.
+
+    .. figure:: _images/success_logs.png
+        :alt: production_ui
+        :align: center
+        :width: 400px
+
+#. Click `STDF to CSV` to start processing
+
+#. Click `Open OUTPUT folder` to open the result folders. The CSV test results files
+   in our standard test datalog format will be located in the folder.
+
+    .. figure:: _images/output_folder.png
+        :alt: production_ui
+        :align: center
+        :width: 600px
+
+
+Engineering/Debugging Interface
+-------------------------------
+
+.. figure:: _images/engr_ui.png
+    :alt: production_ui
+    :align: center
+    :width: 500px
+
+    Follow the step-by-step user interface
+
+#. Use the `file menu` to open the folder containing configuration files
+
+#. Make copies of the `config.yml` file, rename as you like. Edit the
+   configurations in the new copy
+
+#. Drag and drop the new copy of the `.yml` into the `Drop recipe file` field
+
+#. Drag and drop STDF file into the `Drop STDF file` field
+
+#. Read stdf first
+
+#. Export to Excel /or/ Evaluate the data (get all parametric FOMs) /or/ Evaluate the data
+   (using user-configured recipe)
+

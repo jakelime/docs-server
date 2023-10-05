@@ -1,0 +1,101 @@
+Production usage
+================
+
+Guide for Operator usage for Production.
+
+
+Basic checks
+------------
+
+#. Ensure that the correct recipe is loaded. (1) Load recipe using the `File` menu.
+   (2) Use the UI to ensure that the correct recipe name and version is loaded.
+
+    .. figure:: _images/load_recipe.png
+       :alt: load_recipe
+       :align: center
+       :width: 350px
+
+    2 steps to check recipe
+
+#. Input in the lot name into the `Lot name` entry field. Illegal characters are not
+   allowed (i.e. `!@#$%^&*`). Click on `OPEN LOT`.
+
+    .. figure:: _images/lot_entry.png
+       :alt: lot_entry
+       :align: center
+       :width: 400px
+
+#. Load the DUT. Input `SerialNumber` entry field. Illegal characters are not
+   allowed (i.e. `!@#$%^&*`). Click on `START` to trigger test.
+
+    .. figure:: _images/sn_entry.png
+       :alt: sn_entry
+       :align: center
+       :width: 400px
+
+#. Example of a successful test
+
+    .. figure:: _images/test_screenshot.png
+       :alt: test_screenshot
+       :align: center
+       :width: 650px
+
+    #. Right hand side of the UI will display the current running lotname, and
+       the last tested SerialNumber will be displayed.
+
+    #. Lot run statistics (unique DUTs, total number of tests, number of unique
+       DUTs that passed, number of unique DUTs that failed) will also be displayed
+       on the RHS.
+
+    #. To perform a retest, unload the DUT and load the DUT again. Instead of re-entering
+       the same SerialNumber again, you can simply press the `Retest` button.
+
+    #. Details on the PASS/FAIL test results will be displayed in the log. You can
+       see which are the parameters that failed and the corresponding test specs.
+
+    #. Test run time is also displayed in the log.
+
+
+
+Viewing results
+---------------
+
+#. Details on working directory (`Open Local` button)
+
+.. figure:: _images/working_dir.png
+    :alt: working_dir
+    :align: center
+    :width: 400px
+
+#. `_configurations`
+
+    Contains recipes and parameteric definitions.
+
+#. `01-DataCSV`
+
+    Contains the output `TestDatalog.csv` upon end lot
+
+#. `02-WorkingDatalog_TDMS`
+
+    Vontains working data files in TDMS format
+    during the lot running. In case of PC/OS/Software crash, you can resume
+    back the lot by `Open Lot` with the same lot name. The app will perform
+    smart checking using the existing working data files to resume the lot run.
+
+#. `03-WorkingDatalog_CSV`
+
+    Working with CSV file is an incredibly inefficient method.
+    However, we recognise that it is an easy way for people to view the data. This
+    folder will contain a snapshot of the working data file (TDMS) in CSV format.
+    This folder will automatically be rolled over / cleared of old files.
+
+#. `04-Logfiles`
+
+    Each DUT will be logged individually. Visit the here to debug
+    by DUT-test hardware level.
+
+#. `05-ArchiveDatalog`
+
+    All working data files in TDMS format will be automatically
+    archived into this folder during `End Lot`. Nicely archived into folders by date
+    and lotname

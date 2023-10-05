@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; flyhost 3.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Editing user config" href="userconfig.html" />
+    <link rel="prev" title="Downloads" href="downloads.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flyhost
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-hardware-and-os">Recommended Hardware and OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart-for-macos">Quickstart for MacOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-interface">Production Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#engineering-debugging-interface">Engineering/Debugging Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="userconfig.html">Editing user config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">flyhost</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flyhost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getstarted.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<section id="recommended-hardware-and-os">
+<h2>Recommended Hardware and OS<a class="headerlink" href="#recommended-hardware-and-os" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>MacBook Pro (13-inch, 2020)</p></li>
+<li><p>macOS v12.6 (21G115)</p></li>
+<li><p>Min. 300MB disk space</p></li>
+</ul>
+</section>
+<section id="quickstart-for-macos">
+<h2>Quickstart for MacOS<a class="headerlink" href="#quickstart-for-macos" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Download the disk image file <em>flyhost.dmg</em> from <a class="reference internal" href="downloads.html"><span class="doc">Downloads</span></a></p></li>
+<li><p>Mount the disk image</p></li>
+<li><p>Drag and drop <em>flyhost.app</em> to Applications folder</p></li>
+<li><p>Allow the app permission to access <em>Documents</em> folder</p></li>
+<li><p>If the app loads successfully, you will be able to see the screenhot(s)
+in the sections below</p></li>
+</ol>
+</section>
+<section id="production-interface">
+<h2>Production Interface<a class="headerlink" href="#production-interface" title="Permalink to this headline"></a></h2>
+<ol class="arabic">
+<li><p>Drag and drop the folder containing tester <cite>output.stdf</cite> files into
+the <cite>Input Folder</cite> field. You may also choose to leave it as <cite>default path</cite>,
+then <cite>Open INPUT folder</cite>, then load the <cite>output.stdf</cite> files into the folder.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="_images/success_logs.png"><img alt="production_ui" src="_images/success_logs.png" style="width: 400px;" /></a>
+</figure>
+</div></blockquote>
+</li>
+<li><p>Click <cite>STDF to CSV</cite> to start processing</p></li>
+<li><p>Click <cite>Open OUTPUT folder</cite> to open the result folders. The CSV test results files
+in our standard test datalog format will be located in the folder.</p>
+<blockquote>
+<div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="engineering-debugging-interface">
+<h2>Engineering/Debugging Interface<a class="headerlink" href="#engineering-debugging-interface" title="Permalink to this headline"></a></h2>
+<figure class="align-center" id="id1">
+
+<figcaption>
+<p><span class="caption-text">Follow the step-by-step user interface</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Use the <cite>file menu</cite> to open the folder containing configuration files</p></li>
+<li><p>Make copies of the <cite>config.yml</cite> file, rename as you like. Edit the
+configurations in the new copy</p></li>
+<li><p>Drag and drop the new copy of the <cite>.yml</cite> into the <cite>Drop recipe file</cite> field</p></li>
+<li><p>Drag and drop STDF file into the <cite>Drop STDF file</cite> field</p></li>
+<li><p>Read stdf first</p></li>
+<li><p>Export to Excel /or/ Evaluate the data (get all parametric FOMs) /or/ Evaluate the data
+(using user-configured recipe)</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="downloads.html" class="btn btn-neutral float-left" title="Downloads" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="userconfig.html" class="btn btn-neutral float-right" title="Editing user config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

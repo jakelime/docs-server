@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>host module &mdash; flyhost 3.0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Using the Configurations" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> flyhost
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userconfig.html">Editing user config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">flyhost</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commons.html">commons module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">Using the Configurations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">host module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">flyhost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">flyhost</a> &raquo;</li>
+      <li>host module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/host.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-host">
+<span id="host-module"></span><h1>host module<a class="headerlink" href="#module-host" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="host.FileTable">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">FileTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_simple_datalist</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_nofile_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.FileTable" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Looks into the folder, gets a list of files</p>
+<p>Attributes
+:param folderpath: target folderpath to look into
+:type folderpath: Path
+:param files: list of files found inside folderpath
+:type files: list[Path]
+:param df: File table in dataframe format columns[filename, filepath, mod_time]
+:type df: pandas.DataFrame</p>
+<p>Functions
+:param get_files: target folderpath to look into
+:param make_filetable: target folderpath to look into
+:param get_latest_data: returns a single filepath (last, sorted by mod_time)
+:param make_simple_datalist: returns a list of files</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.get_files">
+<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['.index']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#host.FileTable.get_files" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_suffix</strong> (<em>str</em>) – _description_</p></li>
+<li><p><strong>ignores</strong> (<em>list</em><em>, </em><em>optional</em>) – _description_, defaults to [“.index”]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of files found</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.get_latest_data">
+<span class="sig-name descname"><span class="pre">get_latest_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.FileTable.get_latest_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.make_filetable">
+<span class="sig-name descname"><span class="pre">make_filetable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#host.FileTable.make_filetable" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>File table in dataframe format columns[filename, filepath, mod_time]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.FileTable.make_simple_datalist">
+<span class="sig-name descname"><span class="pre">make_simple_datalist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#host.FileTable.make_simple_datalist" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="host.Host">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">Host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.Host" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main worker class repsonsible for loading STDF, converting
+to excel, and generating datalog.csv</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="host.Host.current_df">
+<span class="sig-name descname"><span class="pre">current_df</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><em class="property"> <span class="pre">=</span> <span class="pre">Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]</span></em><a class="headerlink" href="#host.Host.current_df" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="host.Host.ddict">
+<span class="sig-name descname"><span class="pre">ddict</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#host.Host.ddict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="host.Host.dfs">
+<span class="sig-name descname"><span class="pre">dfs</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#host.Host.dfs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.export_to_excel">
+<span class="sig-name descname"><span class="pre">export_to_excel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#host.Host.export_to_excel" title="Permalink to this definition"></a></dt>
+<dd><p>exports to excel file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="host.Host.filepath">
+<span class="sig-name descname"><span class="pre">filepath</span></span><em class="property"><span class="pre">:</span> <span class="pre">pathlib.Path</span></em><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#host.Host.filepath" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#host.Host.get_data" title="Permalink to this definition"></a></dt>
+<dd><p>core algorithm to decipher test datalog csv
+it looks into the datatable named “PTR”</p>
+<p>In Cohu tester, the PTR datatable collects data in sequence
+1. checks for serialnumber
+2. calculate serialnumber
+3. set serialnumber
+4. get serialnumber
+5. in between, there might be various other tests</p>
+<p>The algorithm will:
+1. search the datatable for parametric column_name_fom: TEST_TXT
+2. search the databalse for parametric test results column_name_value: RESULT
+3. the values under TEST_TXT contains all the test in sequece,
+4. algorithm will search for the start_keyword: “before_SERIAL0007/7/X”
+5. algorithm will determine the end_keyword automatically (-1 from the start_keyword)
+6. all the FOM: value data collected in between will be marked collected in a single dict
+7. the dict will be labelled by the calculating the set SerialNumber
+8. these results will be sorted nicely into the test datalog
+9. refer to get_serialnumber() to see the alogirthm for computing serialnumber</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_serialnumber">
+<span class="sig-name descname"><span class="pre">get_serialnumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.Host.get_serialnumber" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<p>it expects this dictionary</p>
+<p>serialnumber is the dot product of these 4
+i.e. SerialNumber = after_SERIAL0007*1 + after_SERIAL0815*256 +
+after_SERIAL1623*65536 + after_SERIAL2431*16777216</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ddict</strong> (<em>dict</em>) – _description_</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.get_tester_id">
+<span class="sig-name descname"><span class="pre">get_tester_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#host.Host.get_tester_id" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a TesterID, configurable using the user config
+Accepts config in this format: [‘_’, ‘tester_name’, ‘socket_id’, …]
+Outputs string f’{tester_name}_{socket_id}_{…}’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.load_stdf">
+<span class="sig-name descname"><span class="pre">load_stdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#host.Host.load_stdf" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>Path</em><em>, </em><em>optional</em>) – _description_, defaults to None</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception</strong> – _description_</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>_description_</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#host.Host.process_data" title="Permalink to this definition"></a></dt>
+<dd><p>Using the generated full data, this function uses pandas
+to process / perform data cleaning</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.prod_run">
+<span class="sig-name descname"><span class="pre">prod_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#host.Host.prod_run" title="Permalink to this definition"></a></dt>
+<dd><p>full sequence for production run, expects a folder contain
+multiple STDF files to be processed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="host.Host.sanity_check_user_config">
+<span class="sig-name descname"><span class="pre">sanity_check_user_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#host.Host.sanity_check_user_config" title="Permalink to this definition"></a></dt>
+<dd><p>checks the user configuration file(s) for possible user-input errors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="commons.html#commons.UserConfigError" title="commons.UserConfigError"><strong>UserConfigError</strong></a> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="host.Host.test_specs_dict">
+<span class="sig-name descname"><span class="pre">test_specs_dict</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#host.Host.test_specs_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="host.main_generate_excel">
+<span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">main_generate_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.main_generate_excel" title="Permalink to this definition"></a></dt>
+<dd><p>test function to generate excel file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="host.main_multiple_files">
+<span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">main_multiple_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.main_multiple_files" title="Permalink to this definition"></a></dt>
+<dd><p>test function for initiating host with a folder of stdf files
+(production mode)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cfg</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="host.main_single_file_test">
+<span class="sig-prename descclassname"><span class="pre">host.</span></span><span class="sig-name descname"><span class="pre">main_single_file_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#host.main_single_file_test" title="Permalink to this definition"></a></dt>
+<dd><p>test function for initiating host using a single STDF file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cfg</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="Using the Configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jake Lim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
