@@ -4,6 +4,8 @@
 
 Simple `Flask` application to serve documentations.
 
+Documentations are created using [sphinx](https://www.sphinx-doc.org/)
+
 ## Quickstart
 
 1. Install `requirements` and run `main.py`
