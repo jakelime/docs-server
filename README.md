@@ -34,3 +34,5 @@ Documentations are created using [sphinx](https://www.sphinx-doc.org/)
 1. On another machine (client), use webbrowser to access `http://X.X.X.X:28868`, where `X.X.X.X` is the IP Address of the server
 
 1. To add `documentations`, use `sphinx` to create and store the entire `HTML build folder` into `static/`
+
+1. `docs-server` will automatically detect existing folders and serve the index
